@@ -1,0 +1,8 @@
+{
+  "sql": "SELECT id, name, status, created_at FROM user WHERE status = 1 ORDER BY created_at DESC LIMIT 10000, 10",
+  "params": ["1"],
+  "execTime": 1180,
+  "timestamp": 1710000000,
+  "source": "UserMapper.listActiveUsers",
+  "ddl": "CREATE TABLE `user` (\n  `id` bigint NOT NULL AUTO_INCREMENT,\n  `name` varchar(64) DEFAULT NULL,\n  `email` varchar(128) DEFAULT NULL,\n  `status` tinyint DEFAULT '1',\n  `created_at` datetime DEFAULT CURRENT_TIMESTAMP,\n  PRIMARY KEY (`id`),\n  KEY `idx_email` (`email`),\n  KEY `idx_status_created_at` (`status`,`created_at`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;"
+}
